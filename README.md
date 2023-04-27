@@ -8,23 +8,22 @@ the answer to the ultimate question
 
 if you are not inlining your svg icons  you have a small brain
 
-## what if you can only use background-image????????????????
+## what if you can only use css????????????????
+
+EVER HEARD OF `background-color`  
+INSTEAD OF TRYING TO RECOLOR NOTHING JUST USE THE ICON AS A CLIPPING MASK
 
 `mask` is the best way because it doesn’t require a `<clipPath>` tag in the svg and can be sized responsively using `mask-size`
 
 ```
 .icon {
-	background-color: hsl(
- 		var(--h),
-		var(--s),
-		var(--l)
-	);
+	background-color: whatever;
+	height: 24px;
+	width: 24px;
 	-webkit-mask-image: url('icon.svg');
 	mask-image: url('icon.svg');
 	-webkit-mask-size: cover;
 	mask-size: cover;
-	height: 24px;
-	width: 24px;
 }
 ```
 
