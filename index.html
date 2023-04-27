@@ -1,154 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-	<title>You don’t need to sepia() saturate() hue-rotate()</title>
-	<link rel="preconnect" href="https://unpkg.com">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://unpkg.com/tiny-css-reset/dist/reset.min.css" />
-	<style>
-		body {
-			--color-background: #ff1f1f; 
-			background-color: var(--color-background);
-			font-family: 'Schibsted Grotesk', sans-serif;
-			font-size: 1.1rem;
-			min-height: 100dvh;
-		}
-		
-		.bg {
-			position: fixed;
-			height: 100%;
-			mix-blend-mode: multiply;
-			width: 100%;
-			z-index: -1;
-		}
-
-		.bg img {
-			height: 100%;
-			object-fit: cover;
-			object-position: center;
-			width: 100%;
-		}
-
-		@media screen and (min-width: 2500px) and (min-resolution: 2dppx) {
-			.bg img {
-				object-fit: none;
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+		<title>You don’t need to sepia() saturate() hue-rotate()</title>
+		<link rel="preconnect" href="https://unpkg.com">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@600&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://unpkg.com/tiny-css-reset/dist/reset.min.css" />
+		<style>
+			body {
+				--color-background: #ff1f1f;
+				background-color: var(--color-background);
+				font-family: 'Schibsted Grotesk', sans-serif;
+				font-size: 1.1rem;
+				font-weight: 600;
+				min-height: 100dvh;
 			}
-		}
 
-		@media screen and (min-width: 5000px) {
-			.bg img {
-				object-fit: none;
+			.bg {
+				position: fixed;
+				height: 100%;
+				mix-blend-mode: multiply;
+				width: 100%;
+				z-index: -1;
 			}
-		}
 
-		main {
-			display: flex;
-			height: 100%;
-			min-height: inherit;
-			padding: env(safe-area-inset-top)
-				calc(8px + env(safe-area-inset-right))
-				env(safe-area-inset-bottom)
-				calc(8px + env(safe-area-inset-left));
-			width: 100%;
-		}
-		
-		.card {
-			align-items: center;
-			background-image: radial-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9));
-			border-radius: 4px;
-			box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05),
-				0 2px 4px -1px rgba(0, 0, 0, 0.1),
-				0 4px 8px -2px rgba(0, 0, 0, 0.1),
-				0 8px 16px -4px rgba(0, 0, 0, 0.1),
-				0 16px 32px -8px rgba(0, 0, 0, 0.1),
-				0 32px 64px -16px rgba(0, 0, 0, 0.25),
-				inset 0 0 0 1px #fff;
-			display: flex;
-			flex-flow: row wrap;
-			justify-content: center;
-			gap: 1ch;
-			margin: auto;
-			max-width: 100%;
-			padding: 24px;
-			position: relative;
-			text-align: center;
-		}
+			.bg img {
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+				width: 100%;
+			}
 
-		.card:hover {
-			background-image: radial-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95));
-		}
+			@media screen and (min-width: 2500px) and (min-resolution: 2dppx) {
+				.bg img {
+					object-fit: none;
+				}
+			}
 
-		.card:active {
-			transform: translateY(2px);
-		}
+			@media screen and (min-width: 5000px) {
+				.bg img {
+					object-fit: none;
+				}
+			}
 
-		.card:active, .card:focus-within {
-			background-image: radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
-		}
+			main {
+				display: flex;
+				height: 100%;
+				min-height: inherit;
+				padding: env(safe-area-inset-top) calc(8px + env(safe-area-inset-right)) env(safe-area-inset-bottom) calc(8px + env(safe-area-inset-left));
+				width: 100%;
+			}
 
-		.card:focus-within {
-			outline: 2px solid;
-			outline-offset: -4px;
-		}
+			.card {
+				align-items: center;
+				background-image: radial-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9));
+				border-radius: 4px;
+				box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05),
+					0 2px 4px -1px rgba(0, 0, 0, 0.1),
+					0 4px 8px -2px rgba(0, 0, 0, 0.1),
+					0 8px 16px -4px rgba(0, 0, 0, 0.1),
+					0 16px 32px -8px rgba(0, 0, 0, 0.1),
+					0 32px 64px -16px rgba(0, 0, 0, 0.25),
+					inset 0 0 0 1px #fff;
+				display: flex;
+				flex-flow: row wrap;
+				gap: 1ch;
+				justify-content: center;
+				margin: auto;
+				max-width: 100%;
+				padding: 24px;
+				position: relative;
+				text-align: center;
+			}
 
-		input {
-			-webkit-appearance: none;
-			appearance: none;
-			clip: rect(0 0 0 0);
-			clip-path: inset(50%);
-			background: none;
-			border: none;
-			height: 1px;
-			left: 0;
-			bottom: 0;
-			outline: none;
-			position: absolute;
-			white-space: nowrap;
-			width: 1px;
-		}
+			.card:hover {
+				background-image: radial-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95));
+			}
 
-		.icon {
-			background-color: var(--color-background);
-			display: inline-block;
-			height: 24px;
-			-webkit-mask-image: url('Palette.svg');
-			mask-image: url('Palette.svg');
-			-webkit-mask-size: cover;
-			mask-size: cover;
-			vertical-align: middle;
-			width: 24px;
-		}
-	</style>
-</head>
+			.card:active {
+				transform: translateY(2px);
+			}
 
-<body>
-	<picture class="bg">
-		<source media="(max-width: 540px)" srcset="bg/bg-540px.jpg, bg/bg-540px@2x.jpg 2x">
-		<source media="(max-width: 720px)" srcset="bg/bg-720px.jpg, bg/bg-720px@2x.jpg 2x">
-		<source media="(max-width: 960px)" srcset="bg/bg-960px.jpg, bg/bg-960px@2x.jpg 2x">
-		<source media="(max-width: 1280px)" srcset="bg/bg-1280px.jpg, bg/bg-1280px@2x.jpg 2x">
-		<source media="(max-width: 1366px)" srcset="bg/bg-1366px.jpg, bg/bg-1366px@2x.jpg 2x">
-		<source media="(max-width: 1920px)" srcset="bg/bg-1920px.jpg, bg/bg-1920px@2x.jpg 2x">
-		<source media="(max-width: 2500px)" srcset="bg/bg-2560px.jpg, bg/bg.jpg 2x">
-		<img src="bg/bg.jpg" alt width="5000" height="3570" decoding="async">
-	</picture>
-	<main>
-		<label class="card">
-			<span class="icon"></span>
-			<span>Background color</span>
-			<input type="color" id="picker" value="#ff1f1f">
-		</label>
-	</main>
-	<script>
-		picker.addEventListener('input', (event) => {
-			document.body.style.setProperty('--color-background', event.target.value);
-		});
-	</script>
-</body>
+			.card:active,
+			.card:focus-within {
+				background-image: radial-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+			}
+
+			.card:focus-within {
+				outline: 2px solid;
+				outline-offset: -4px;
+			}
+
+			input {
+				-webkit-appearance: none;
+				appearance: none;
+				clip: rect(0 0 0 0);
+				clip-path: inset(50%);
+				background: none;
+				border: none;
+				height: 1px;
+				left: 0;
+				bottom: 0;
+				outline: none;
+				position: absolute;
+				white-space: nowrap;
+				width: 1px;
+			}
+
+			.icon {
+				height: 24px;
+				width: 24px;
+				position: relative;
+			}
+
+			.icon::before,
+			.icon::after {
+				content: '';
+				inset: 0;
+				position: absolute;
+			}
+
+			.icon::before {
+				background-color: var(--color-background);
+				-webkit-mask-image: url('Palette-fill.svg');
+				mask-image: url('Palette-fill.svg');
+				-webkit-mask-size: cover;
+				mask-size: cover;
+			}
+
+			.icon::after {
+				background: url('Palette.svg') center/cover no-repeat;
+			}
+		</style>
+	</head>
+
+	<body>
+		<picture class="bg">
+			<source media="(max-width: 540px)" srcset="bg/bg-540px.jpg, bg/bg-540px@2x.jpg 2x">
+			<source media="(max-width: 720px)" srcset="bg/bg-720px.jpg, bg/bg-720px@2x.jpg 2x">
+			<source media="(max-width: 960px)" srcset="bg/bg-960px.jpg, bg/bg-960px@2x.jpg 2x">
+			<source media="(max-width: 1280px)" srcset="bg/bg-1280px.jpg, bg/bg-1280px@2x.jpg 2x">
+			<source media="(max-width: 1366px)" srcset="bg/bg-1366px.jpg, bg/bg-1366px@2x.jpg 2x">
+			<source media="(max-width: 1920px)" srcset="bg/bg-1920px.jpg, bg/bg-1920px@2x.jpg 2x">
+			<source media="(max-width: 2500px)" srcset="bg/bg-2560px.jpg, bg/bg.jpg 2x">
+			<img src="bg/bg.jpg" alt width="5000" height="3570" decoding="async">
+		</picture>
+		<main>
+			<label class="card">
+				<span class="icon"></span>
+				<span>Background color</span>
+				<input type="color" id="picker" value="#ff1f1f">
+			</label>
+		</main>
+		<script>
+			picker.addEventListener('input', (event) => {
+				document.body.style.setProperty('--color-background', event.target.value);
+			});
+		</script>
+	</body>
 
 </html>
